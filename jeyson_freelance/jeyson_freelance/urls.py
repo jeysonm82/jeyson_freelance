@@ -16,6 +16,10 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
+admin.site.site_header = u"Jeyson's Freelance Website Administration."
+admin.site.site_title = u"Jeyson's Freelance Website Administration."
+admin.autodiscover()
+
 urlpatterns = [
     url(r'^', include('web_app.urls')),
     url(r'^admin/', admin.site.urls),

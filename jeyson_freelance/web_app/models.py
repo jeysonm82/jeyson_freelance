@@ -37,6 +37,7 @@ class Experience(models.Model):
     skills = models.ManyToManyField(Skill)
     exp_type = models.CharField("Experience type", max_length=10, choices=[('education', 'Education'), ('work', 'Work')])
 
+
 class Projects(models.Model):
     title = models.CharField(max_length=70)
     short_desc = models.CharField(max_length=140)
