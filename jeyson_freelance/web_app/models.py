@@ -15,6 +15,10 @@ class Bio(models.Model):
     github_url = models.URLField("Github URL")
     linkedin_url = models.URLField("Linkedin URL")
 
+    class Meta:
+        verbose_name = 'Bio'
+        verbose_name_plural = 'Bio'
+
 
 class SkillCategory(models.Model):
     name = models.CharField("Name", max_length=30)
@@ -22,11 +26,18 @@ class SkillCategory(models.Model):
 
     class Meta:
         ordering = ['order']
+        verbose_name = 'Skill category'
+        verbose_name_plural = 'Skill categories'
 
 class Skill(models.Model):
     name = models.CharField("Name", max_length=30)
     description = models.TextField()
     category = models.ForeignKey(SkillCategory)
+
+    class Meta:
+        verbose_name = 'Skill'
+        verbose_name_plural = 'Skills'
+
 
 
 class Experience(models.Model):
@@ -37,8 +48,13 @@ class Experience(models.Model):
     skills = models.ManyToManyField(Skill)
     exp_type = models.CharField("Experience type", max_length=10, choices=[('education', 'Education'), ('work', 'Work')])
 
+    class Meta:
+        verbose_name = 'Experience'
+        verbose_name_plural = 'Experiences'
 
-class Projects(models.Model):
+
+
+class Project(models.Model):
     title = models.CharField(max_length=70)
     short_desc = models.CharField(max_length=140)
     image = VersatileImageField('Imagen', ppoi_field='ppoi')
@@ -47,3 +63,7 @@ class Projects(models.Model):
     demo_url = models.URLField("Demo URL", blank=True, null=True)
     source_url = models.URLField("Source URL", blank=True, null=True)
     skills = models.ManyToManyField(Skill)
+
+    class Meta:
+        verbose_name = 'Project'
+        verbose_name_plural = 'Projects'
