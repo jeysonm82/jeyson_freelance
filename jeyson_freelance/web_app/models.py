@@ -2,12 +2,14 @@ from __future__ import unicode_literals
 
 from django.db import models
 from versatileimagefield.fields import VersatileImageField, PPOIField
+import json
+from django.utils.html import mark_safe
 
 # Create your models here.
 class Bio(models.Model):
     first_name = models.CharField(max_length=20)
     last_name = models.CharField(max_length=20)
-    description = models.TextField()
+    description = models.TextField(null=True, blank=True)
     email = models.EmailField()
     phone = models.CharField(max_length=15)
     location = models.CharField(max_length=30)
@@ -24,15 +26,21 @@ class SkillCategory(models.Model):
     name = models.CharField("Name", max_length=30)
     order = models.SmallIntegerField(default = 0)
 
+    def __unicode__(self):
+        return self.name
+
     class Meta:
-        ordering = ['order']
+        ordering = ['order', 'pk']
         verbose_name = 'Skill category'
         verbose_name_plural = 'Skill categories'
 
 class Skill(models.Model):
-    name = models.CharField("Name", max_length=30)
-    description = models.TextField()
-    category = models.ForeignKey(SkillCategory)
+    name = models.CharField("Name", max_length=60)
+    description = models.TextField(null=True, blank=True)
+    category = models.ForeignKey(SkillCategory, related_name='skills')
+
+    def __unicode__(self):
+        return self.name
 
     class Meta:
         verbose_name = 'Skill'
@@ -63,6 +71,15 @@ class Project(models.Model):
     demo_url = models.URLField("Demo URL", blank=True, null=True)
     source_url = models.URLField("Source URL", blank=True, null=True)
     skills = models.ManyToManyField(Skill)
+    
+    def to_json(self):
+        r = {}
+        r['title'] = self.title
+        r['image'] = self.image.thumbnail['400x300'].url
+        r['id'] = self.pk
+        r['short_desc'] = self.short_desc
+        r['skills'] = [{'name': x.name} for x in self.skills.all()]
+        return mark_safe(json.dumps(r))
 
     class Meta:
         verbose_name = 'Project'
