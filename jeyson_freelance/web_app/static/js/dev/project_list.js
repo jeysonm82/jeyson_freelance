@@ -1,0 +1,127 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+export default class ProjectListComp extends React.Component {
+
+    constructor() {
+        super();
+        this.state = {projects: [], mode: 'list', project_detail: null};
+    }
+
+    render(){
+        let current_mode = this.state.mode;
+        if (current_mode == 'list') {
+            let projects = this.state.projects.map( (entry, index) => <ProjectItemComp key={index} idx={index} entry={entry} change_class={this.change_class.bind(this)} show_project_cback={this.show_project.bind(this)} />);
+            return (
+                    <div>
+                    {projects}
+                    </div>
+                    );
+        }
+        else {
+            let current_project = this.state.project_detail;
+            return (<div><ProjectDetailComp  entry={current_project} close={this.close.bind(this)}/></div>);
+        }
+
+    }
+
+    change_class(idx, cls) {
+        let projects = this.state.projects;
+        projects[idx].className = cls;
+        this.setState(projects);
+    }
+    
+    show_project(idx) {
+        let project = this.state.projects[idx];
+        let state = this.state;
+        state.mode = 'detail';
+        state.project_detail = project;
+        this.setState(state);
+    }
+
+    close() {
+        let state = this.state;
+        state.mode = 'list';
+        state.project_detail = null;
+        for(let p of state.projects){
+            p.className = null;
+        }
+        this.setState(state);
+    }
+
+}
+
+class ProjectItemComp extends React.Component {
+
+    animate(event) {
+        console.log(event);
+        let anim = event.type=='mouseenter'? "zoomIn":"fadeOut";
+        this.props.change_class(this.props.idx, "animated " + anim);
+    }
+
+    show_project(event) {
+        event.preventDefault();
+        this.props.show_project_cback(this.props.idx);
+
+    }
+    
+
+
+    render() {
+        let entry = this.props.entry;
+        return(
+            <div className={'project-entry col-md-4 '}>
+                 <a href='#'
+                     onMouseEnter={this.animate.bind(this)}
+                     onMouseLeave={this.animate.bind(this)}
+                     onClick={this.show_project.bind(this)}>
+                 
+                     <div><img src={entry.image} /></div>
+                     <div className={entry.className?entry.className: 'hidden'}>
+                         <h3>{entry.title}</h3>
+                         <p>{entry.short_desc}</p>
+                     </div>
+                 </a>
+
+            </div>
+                );
+    }
+}
+
+
+
+class ProjectDetailComp extends React.Component {
+
+    componentDidMount() {
+
+        //Scroll to top when mounted
+        $('html, body').animate({
+            scrollTop: $(".project-detail").offset().top
+            }, 500);
+
+    }
+
+    render() {
+        let entry = this.props.entry;
+        let skills = entry.skills.map((entry, index) => <li key={index}>{entry.name}</li> );
+        return(
+                <div className='project-detail animated fadeIn'>
+                    <a href='#sample-projects' onClick={this.props.close}><i className="fa fa-times-circle-o fa-2x"></i></a>
+                    
+                    <div className='project-detail__cont'>
+                        <h3>{entry.title}</h3>
+                        {entry.description}
+                        
+                        <div>
+                        <h4>Skills used</h4>
+                        {skills}
+                        </div>
+
+                    </div>
+
+                </div>
+                );
+
+    }
+
+}
