@@ -37,7 +37,6 @@ header
 
 
 .bottom-header
-  background: $base
   .intro
     color: $gray2
     font-size: 50px
@@ -97,3 +96,16 @@ header
   padding: 5px
   &__cont
     padding: 0px 20px
+
+.go-top
+  display: block
+  position: fixed
+  bottom: 0
+  right: 0
+  padding: 10px
+  z-index: 10
+  opacity: 0
+  transition: all 0.3s ease-in
+
+  &.visible
+    opacity: 1

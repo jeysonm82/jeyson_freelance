@@ -15,6 +15,18 @@ export default function menu_ui(){
                 }, 500);
         
         });
+
+        // Go top logic
+        $(window).scroll(function(){
+            let goto_class = $(this).scrollTop()>400?'go-top visible':'go-top';
+            $(".go-top").removeClass().addClass(goto_class);
+        
+        });
+
+        $(".go-top").click(function(event){
+            event.preventDefault();
+            $('html, body').animate({scrollTop: 0}, 500);
+        });
     
     });
 
