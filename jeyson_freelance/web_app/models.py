@@ -78,9 +78,17 @@ class Project(models.Model):
         r['image'] = self.image.thumbnail['400x300'].url
         r['id'] = self.pk
         r['short_desc'] = self.short_desc
+        r['description'] = self.description
         r['skills'] = [{'name': x.name} for x in self.skills.all()]
+        r['images'] = [{'url': x.image.url} for x in self.images.all()]
         return mark_safe(json.dumps(r))
 
     class Meta:
         verbose_name = 'Project'
         verbose_name_plural = 'Projects'
+
+
+class ProjectImage(models.Model):
+    project = models.ForeignKey(Project, related_name='images')
+    image = VersatileImageField('Imagen', ppoi_field='ppoi')
+    ppoi = PPOIField('Image center')
