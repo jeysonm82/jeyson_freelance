@@ -50,8 +50,8 @@ class Skill(models.Model):
 
 class Experience(models.Model):
     title = models.CharField(max_length=70)
-    _from = models.DateField()
-    to = models.DateField(blank=True, null=True)
+    date_from = models.DateField()
+    date_to = models.DateField(blank=True, null=True)
     description = models.TextField()
     skills = models.ManyToManyField(Skill)
     exp_type = models.CharField("Experience type", max_length=10, choices=[('education', 'Education'), ('work', 'Work')])
