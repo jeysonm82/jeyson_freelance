@@ -7,8 +7,15 @@ $gray2: #f8fafb
 $white: #fff
 $header_affix_color: rgba(170,180,190, 0.75)
 
+a
+  color: $gray1
+  transition: all 0.3s ease-in
+  &:hover
+    color: $base
+
 body
   background: $white
+  color: $gray1
 
 header
   color: $gray1
@@ -98,14 +105,38 @@ header
 .project-detail
   min-height: 200px
   margin: 15px
-  border: 1px solid #ccc
+  border: 3px solid $gray1
+  background: $white
+  border-radius: 4px
   padding: 5px
   &__cont
-    padding: 0px 20px
+    padding: 0px 10px
+    padding-bottom: 20px
+  &__skills
+    list-style-type: none
+    margin: 0
+    padding: 0
+    float: left
+    padding-bottom: 20px
+    li
+      float: left
+      margin-right: 10px
+      border: 2px solid $gray1
+      border-radius: 4px
+      background: $gray1
+      color: $gray2
+      padding: 2px 4px
+  &__imgs
+    clear: both
+    img
+      max-width: 30%
+      height: auto
+      display: inline-block
+      margin-right: 10px
 
 .go-top
   display: block
-  color: $base
+  color: $gray1
   position: fixed
   bottom: 0
   right: 0
@@ -132,8 +163,13 @@ section
 #sample-projects
   background: $white
 
-#contact
+#experience
   background: $accent1
+
+#contact
+  background: $base
+  h2
+    color: $gray2
   form
     background: $gray2
     padding: 20px
@@ -154,9 +190,13 @@ footer
 .experience-item
   padding: 20px 0px
   text-align: justify
+  background: $gray2
+  border-radius: 4px
+  width: 80%
+  margin: auto
+  margin-bottom: 20px
   &__title
     >b
       font-size: 25px
   &.r
-    background: $gray2
   
