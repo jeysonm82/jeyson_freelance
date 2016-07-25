@@ -1,61 +1,71 @@
 {%extends "web_app/base_layout.html"%}
 
 {%block content%}
-<section id='about-me' class='container'>
-    <h2>About me</h2>
-    <div class='row'>
-        <div class='col-md-6'>
-            Hello, I'm Jeyson, I'm a software developer.{%lorem%}
-        </div>
-        <div class='col-md-6'>
-            <ul>
-                <li><i class="fa fa-file-pdf-o fa-2x"></i> Jeyson Molina</li>
-                <li><i class="fa fa-file-pdf-o fa-2x"></i> Email</li>
-                <li><i class="fa fa-file-pdf-o fa-2x"></i> Medellin, Colombia</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<section id='skills' class='container'>
-    <div class='row'>
-        <div class='col-md-12'>
-            <h2>Skills</h2>
-            {%for skill_cat in skills %}
-                <div class='col-md-4'>
-                    <h3>{{skill_cat}}</h3>
-                    <ul>
-                        {%for skill in skill_cat.skills.all%}
-                        <li>{{skill}}</li>
-                        {%endfor%}
-                    </ul>
-                </div>
-            {%endfor%}
+<section id='about-me' >
+    <div class='container'>
+        <h2>About me</h2>
+        <div class='row'>
+            <div class='col-md-6'>
+                Hello, I'm Jeyson, I'm a software developer.{%lorem%}
+            </div>
+            <div class='col-md-6'>
+                <ul>
+                    <li><i class="fa fa-file-pdf-o fa-2x"></i> Jeyson Molina</li>
+                    <li><i class="fa fa-file-pdf-o fa-2x"></i> Email</li>
+                    <li><i class="fa fa-file-pdf-o fa-2x"></i> Medellin, Colombia</li>
+                </ul>
+            </div>
         </div>
     </div>
 </section>
 
-<section id='sample-projects' class='container'>
-    <h2 >Sample Projects</h2>
-    <div class='row' id='project-list'></div>
+<section id='skills'>
+    <div class='container'>
+        <div class='row'>
+            <div class='col-md-12'>
+                <h2>Skills</h2>
+                {%for skill_cat in skills %}
+                    <div class='col-md-4'>
+                        <h3>{{skill_cat}}</h3>
+                        <ul>
+                            {%for skill in skill_cat.skills.all%}
+                            <li>{{skill}}</li>
+                            {%endfor%}
+                        </ul>
+                    </div>
+                {%endfor%}
+            </div>
+        </div>
     </div>
 </section>
 
-<section id='experience' class='container'>
-    <div class='row'>
-        <div class='col-md-12'>
-            <h2>My experience</h2>
+<section id='sample-projects' >
+    <div class='container'>
+        <h2 >Sample Projects</h2>
+        <div class='row' id='project-list'></div>
+    </div>
+</section>
+
+<section id='experience'>
+    <div class='container'>
+        <div class='row'>
+            <div class='col-md-12'>
+                <h2>My experience</h2>
+            </div>
         </div>
     </div>
 </section>
 
 
 
-<section id='Contact' class='container'>
-    <div class='row'>
-        <div class='col-md-12'>
-            <h2>Contact</h2>
+<section id='contact'>
+    <div class='container'>
+        <div class='row'>
+            <div class='col-md-12'>
+                <h2>Contact</h2>
+            </div>
         </div>
+    </div>
 </section>
 {%endblock%}
 
