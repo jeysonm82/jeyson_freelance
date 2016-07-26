@@ -8,7 +8,7 @@
             <div class='col-md-6 short-bio'>
                 Hello, I'm Jeyson, I'm a software developer.{%lorem%}
             </div>
-            <div class='col-md-6 info'>
+            <div class='col-md-6 info scroll-anim'>
                 <ul>
                     <li><i class="fa fa-user fa-2x"></i> Jeyson Molina Cortés</li>
                     <li><a href='mailto: jeyson.mco@gmail.com' target='_blank'><i class="fa fa-envelope fa-2x"></i> jeyson.mco@gmail.com</a></li>
@@ -28,7 +28,7 @@
             <div class='col-md-12'>
                 <h2>Skills</h2>
                 {%for skill_cat in skills %}
-                    <div class='col-xs-12 col-sm-6 col-md-4'>
+                    <div class='col-xs-12 col-sm-6 col-md-4 scroll-anim'>
                         <h3>{{skill_cat}}</h3>
                         <ul>
                             {%for skill in skill_cat.skills.all%}
@@ -53,7 +53,7 @@
     <div class='container'>
         <h2>My experience</h2>
             {%for exp in experiences%}
-                <div class='experience-item row {% cycle '' 'r' %}'>
+                <div class='experience-item row {% cycle '' 'r' %} scroll-anim'>
                     <div class='experience-item__title col-md-3 '>
                         <b>{{exp.title}}</b>
                         <p><b>From:</b> {{exp.date_from}} <b>To:</b> {{exp.date_to}}</p>
@@ -79,7 +79,7 @@
         <h2>Contact</h2>
         <div class='row'>
             <div class='col-md-offset-2 col-md-8'>
-                <form role='form' method='post'>
+                <form role='form' method='post' class='scroll-anim'>
                     {%csrf_token%}
                     <div class='form-group'>
                         <label for='name'>Name</label> 

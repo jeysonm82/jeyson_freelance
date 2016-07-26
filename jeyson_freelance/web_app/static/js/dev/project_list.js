@@ -70,7 +70,7 @@ class ProjectItemComp extends React.Component {
     render() {
         let entry = this.props.entry;
         return(
-            <div className={'project-entry col-md-4 col-xs-12 col-sm-6 '}>
+            <div className={'project-entry col-md-4 col-xs-12 col-sm-6 scroll-anim'}>
                  <a href='#'
                      onMouseEnter={this.animate.bind(this)}
                      onMouseLeave={this.animate.bind(this)}

@@ -5,7 +5,7 @@ $accent3: #d02424
 $gray1: #33434e
 $gray2: #f8fafb
 $white: #fff
-$header_affix_color: rgba(170,180,190, 0.75)
+$header_affix_color: rgba(40,40,40, 0.90)
 
 a
   color: $gray1
@@ -38,12 +38,17 @@ header
     top: 0
     transition: all 0.3s ease-in
     background: $header_affix_color
+    color: $gray2
     width: 100%
     z-index: 10
     .sd-label
       display: none
     .menu--top
       display: block
+      a
+        color: $base
+        &:hover
+          color: $gray2
     h1
       margin: 10px 0px
 
@@ -78,8 +83,7 @@ header
 
 .menu--top
   padding-top: 10px
-  a:last-child i
-    color: $accent3
+
 .menu--main
   a
     font-size: 25px
@@ -262,3 +266,6 @@ footer
   .menu--top
     a
       font-size: 40px
+
+.scroll-anim
+  opacity: 0
