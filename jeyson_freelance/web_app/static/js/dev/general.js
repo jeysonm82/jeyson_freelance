@@ -4,8 +4,9 @@ export default function general_ui(){
         //scroll animation for scroll-anim elements
         let k = 0;
         $(window).scroll(function(){
-            //Check every 250ms only to save resources
-            if(new Date().getTime() - k<250){return;}
+            //Check every t ms only to save resources
+            let t = 25;
+            if(new Date().getTime() - k<t){return;}
             k = new Date().getTime();
 
             let scroll_value = $(this).scrollTop();
