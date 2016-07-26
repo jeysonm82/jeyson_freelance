@@ -16,10 +16,10 @@ a
 body
   background: $white
   color: $gray1
+  font-size: 20px
 
 header
   color: $gray1
-  height: 100vh
   background: $base
 
 .top-header
@@ -74,6 +74,9 @@ header
   float: right
   a:last-child i
     color: $accent3
+.menu--main
+  a
+    font-size: 25px
 
 .project-entry
   margin-bottom: 50px
@@ -151,12 +154,31 @@ header
 section
   padding: 50px 0px
   h2
-    font-size: 40px
+    font-size: 45px
+  h3
+    font-size: 28px
+  h4
+    font-size: 24px
+  h2, h3, h4
+    font-weight: bold
 
 #about-me
   background: $gray2
   padding-top: 150px
-
+  .short-bio
+    text-align: justify
+  .info
+    ul
+      list-style-type: none
+      padding: 0px 10px
+      border-radius: 4px
+      border: 2px solid $gray1
+      margin: 0
+      background: $white
+      a:hover
+        text-decoration: none
+      li
+        margin: 5px
 #skills
   background: $accent2
 
