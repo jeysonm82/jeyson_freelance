@@ -2,7 +2,7 @@ export default function menu_ui(){
 
     $(document).ready(function(){
     
-        $(".menu a:not(:last-child)").click(function(event){
+        $(".menu a").click(function(event){
             event.preventDefault();
             let section_id = $(this).attr("href");
             console.log("click");
@@ -13,6 +13,21 @@ export default function menu_ui(){
             $('html, body').animate({
                     scrollTop: $(section_id).offset().top - top_header_height
                 }, 500);
+        
+        });
+        
+        //scroll animation for menu-top  elements
+        $(window).scroll(function(){
+            let scroll_value = $(this).scrollTop();
+            let top_header_height = $(".top-header").height();
+            let class2add;
+            $("section").each(function(index){
+                let elem_top = $(this).offset().top;
+                if(scroll_value >=  (elem_top - top_header_height)){class2add = "color"+index}
+            });
+            
+            $(".menu--top").removeClass("color0 color1 color2 color3 color4");
+            $(".menu--top").addClass(class2add);
         
         });
 

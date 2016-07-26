@@ -24,6 +24,8 @@ export default function general_ui(){
         
         });
 
+        $(window).trigger( "scroll" );
+
     });
 
 }
