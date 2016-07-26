@@ -17,7 +17,7 @@ export default function menu_ui(){
         });
         
         //scroll animation for menu-top  elements
-        $(window).scroll(function(){
+        function do_scroll_menu_anim(){
             let scroll_value = $(this).scrollTop();
             let top_header_height = $(".top-header").height();
             let class2add;
@@ -28,7 +28,15 @@ export default function menu_ui(){
             
             $(".menu--top").removeClass("color0 color1 color2 color3 color4");
             $(".menu--top").addClass(class2add);
-        
+        }
+
+
+        let do_scroll_menu_anim_timer; 
+        $(window).scroll(function(){
+              if(do_scroll_menu_anim_timer) {
+                clearTimeout(do_scroll_menu_anim_timer);
+                }
+            do_scroll_menu_anim_timer = setTimeout(do_scroll_menu_anim, 150);  
         });
 
         // Go top logic

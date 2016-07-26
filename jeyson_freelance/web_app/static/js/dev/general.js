@@ -2,13 +2,9 @@ export default function general_ui(){
 
     $(document).ready(function(){
         //scroll animation for scroll-anim elements
-        let k = 0;
-        $(window).scroll(function(){
-            //Check every t ms only to save resources
-            let t = 25;
-            if(new Date().getTime() - k<t){return;}
-            k = new Date().getTime();
+        let do_scroll_anim_timer;
 
+        function do_scroll_anim() {
             let scroll_value = $(this).scrollTop();
             let window_height = $(this).height();
 
@@ -21,7 +17,13 @@ export default function general_ui(){
                         }
                     }
                     );
-        
+        }
+
+        $(window).scroll(function(){
+            if(do_scroll_anim_timer) {
+                clearTimeout(do_scroll_anim_timer);
+            }
+            do_scroll_anim_timer = setTimeout(do_scroll_anim, 150);
         });
 
         $(window).trigger( "scroll" );
