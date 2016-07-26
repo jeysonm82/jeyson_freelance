@@ -21,13 +21,18 @@ body
 header
   color: $gray1
   background: $base
+  padding-bottom: 20px
+  min-height: 100vh
 
 .top-header
   background: $white
   top: -50px
   .sd-label
-    float: right
-    font-size: 25px
+    margin-top: 20px
+    margin-bottom: 10px
+    text-align: right
+    font-size: 20px
+    line-height: 36px
   &.affix
     top: 0
     transition: all 0.3s ease-in
@@ -46,7 +51,7 @@ header
   .intro
     color: $gray2
     font-size: 50px
-    padding: 300px 50px
+    padding: 290px 50px
     text-align: center
     div span:nth-child(1)
       font-size: 70px
@@ -71,7 +76,7 @@ header
     display: none
 
 .menu--top
-  float: right
+  padding-top: 10px
   a:last-child i
     color: $accent3
 .menu--main
@@ -167,6 +172,7 @@ section
   padding-top: 150px
   .short-bio
     text-align: justify
+    padding-bottom: 10px
   .info
     ul
       list-style-type: none
@@ -179,6 +185,12 @@ section
         text-decoration: none
       li
         margin: 5px
+        i
+          padding-right: 10px
+        &:last-child
+          i
+            color: $accent3
+          
 #skills
   background: $accent2
 
@@ -205,7 +217,13 @@ section
 footer
   background: #333
   color: $gray2
-
+  padding: 80px 0px 5px 0px
+  text-align: center
+  a
+    color: green
+    &:hover
+      color: lightgreen
+      text-decoration: none
 
 .experience-item
   padding: 20px 0px
@@ -219,4 +237,25 @@ footer
     >b
       font-size: 25px
   &.r
-  
+
+
+@media(max-width:992px)
+  .top-header
+    &.affix .main-title
+      display: none
+    .sd-label
+      text-align: left
+      font-size: 25px 
+      line-height: 25px
+    .menu--top
+      a
+        padding: 0px 2px
+        font-size: 26px
+        &:last-child
+          display: none
+@media(max-width:768px)
+  .menu--main
+    font-size: 60px
+  .menu--top
+    a
+      font-size: 40px

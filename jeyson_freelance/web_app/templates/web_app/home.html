@@ -15,6 +15,7 @@
                     <li><a href='https://www.youtube.com/watch?v=k-OD3KaVHSE' target='_blank'><i class="fa fa-globe fa-2x"></i> Medellin, Colombia</a></li>
                     <li><a href='http://www.github.com/jeysonmc' target='_blank'><i class="fa fa-github-alt fa-2x"></i> Github</a></li>
                     <li><a href='https://www.linkedin.com/in/jeyson-molina-90048427?trk=nav_responsive_tab_profile' target='_blank'><i class="fa fa-linkedin fa-2x"></i> Linkedin</a></li>
+                    <li><a href='/static/CV_Jeyson-Molina_2016.pdf' target='_blank'><i class="fa fa-file-pdf-o fa-2x"></i> Get my CV</a></li>
                 </ul>
             </div>
         </div>
@@ -27,7 +28,7 @@
             <div class='col-md-12'>
                 <h2>Skills</h2>
                 {%for skill_cat in skills %}
-                    <div class='col-md-4'>
+                    <div class='col-xs-12 col-sm-6 col-md-4'>
                         <h3>{{skill_cat}}</h3>
                         <ul>
                             {%for skill in skill_cat.skills.all%}
@@ -53,7 +54,7 @@
         <h2>My experience</h2>
             {%for exp in experiences%}
                 <div class='experience-item row {% cycle '' 'r' %}'>
-                    <div class='experience-item__title col-md-3'>
+                    <div class='experience-item__title col-md-3 '>
                         <b>{{exp.title}}</b>
                         <p><b>From:</b> {{exp.date_from}} <b>To:</b> {{exp.date_to}}</p>
                     </div>
