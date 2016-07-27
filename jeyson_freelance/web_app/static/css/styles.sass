@@ -1,11 +1,8 @@
-$base: #248AD0
-$accent1: #19D680
-$accent2: #FFC51E
-$accent3: #d02424
-$gray1: #33434e
-$gray2: #f8fafb
-$white: #fff
-$header_affix_color: rgba(40,40,40, 0.90)
+@import "globals"
+@import "header"
+@import "menu"
+@import "project"
+@import "responsive"
 
 a
   color: $gray1
@@ -17,164 +14,6 @@ body
   background: $white
   color: $gray1
   font-size: 20px
-
-header
-  color: $gray1
-  background-color: $base
-  background-image: url(/static/img/60-lines.png)
-  padding-bottom: 20px
-  min-height: 100vh
-
-.top-header
-  background: $white
-  top: -50px
-  .sd-label
-    margin-top: 20px
-    margin-bottom: 10px
-    text-align: right
-    font-size: 20px
-    line-height: 36px
-  &.affix
-    top: 0
-    transition: all 0.3s ease-in
-    background: $header_affix_color
-    color: $gray2
-    width: 100%
-    z-index: 10
-    .sd-label
-      display: none
-    .menu--top
-      display: block
-
-    h1
-      margin: 10px 0px
-      a
-        color: $gray2
-        &:hover
-          color: $gray2
-  h1
-    a:hover
-     color: $gray1
-     text-decoration: none
-       
-
-
-.bottom-header
-  .intro
-    color: $gray2
-    font-size: 50px
-    padding: 290px 50px
-    text-align: center
-    div span:nth-child(1)
-      font-size: 70px
-    div span:nth-child(2)
-      padding: 10px
-      background: $gray1
-
-.menu
-  text-align: center
-  a
-    color: $gray1
-    text-decoration: none
-    display: inline-block
-    font-size: 20px
-    padding: 0px 10px
-    &:hover
-      color: $gray2
-      transition: color 0.3s;
-  i
-    display: block
-  &--top
-    display: none
-
-.menu--top
-  padding-top: 10px
-  a
-    color: $gray2
-    &:hover
-      color: $gray2
-  &.color0 a
-    color: $gray2
-    &:hover
-      color: $gray2
-  &.color1 a
-    color: $accent2
-    &:hover
-      color: $gray2
-  &.color2 a
-    color: $gray2
-    &:hover
-      color: $gray2
-  &.color3 a
-    color: $accent1
-    &:hover
-      color: $gray2
-  &.color4 a
-    color: $base
-    &:hover
-      color: $gray2
-.menu--main
-  a
-    font-size: 25px
-
-.project-entry
-  margin-bottom: 50px
-  a
-    color: $gray2
-    position: relative
-    height: 200px
-    width: 100%
-    display: block
-    :hover
-      color: $gray2
-    div:nth-child(2)
-      padding: 10px
-      background: rgba(30, 30, 30, 0.5)
-      -webkit-animation-duration: 0.4s
-      -moz-animation-duration: 0.4s
-      
-  div
-    position: absolute
-    top: 0
-    width: 100%
-    height: 100%
-    overflow: hidden
-    border-radius: 2px
-  img
-    width: 100%
-    height: auto
-
-.project-detail
-  min-height: 200px
-  margin: 15px
-  border: 3px solid $gray1
-  background: $white
-  border-radius: 4px
-  padding: 5px
-  &__cont
-    padding: 0px 10px
-    padding-bottom: 20px
-  &__skills
-    list-style-type: none
-    margin: 0
-    padding: 0
-    float: left
-    padding-bottom: 20px
-    li
-      float: left
-      margin-right: 10px
-      border: 2px solid $gray1
-      border-radius: 4px
-      background: $gray1
-      color: $gray2
-      padding: 2px 4px
-  &__imgs
-    clear: both
-    img
-      max-width: 30%
-      height: auto
-      display: inline-block
-      margin-right: 10px
 
 .go-top
   display: block
@@ -200,7 +39,6 @@ section
     font-size: 24px
   h2, h3, h4
     font-weight: bold
-
 
 
 #about-me
@@ -237,6 +75,19 @@ section
 #experience
   background: $accent1
 
+.experience-item
+  padding: 20px 0px
+  text-align: justify
+  background: $gray2
+  border-radius: 4px
+  width: 80%
+  margin: auto
+  margin-bottom: 20px
+  &__title
+    >b
+      font-size: 25px
+  &.r
+
 #contact
   background: $base
   h2
@@ -251,6 +102,7 @@ section
       display: block
       margin: auto
       font-size: 25px
+
 footer
   position: relative
   background-color: #333
@@ -263,44 +115,6 @@ footer
     &:hover
       color: lightgreen
       text-decoration: none
-
-.experience-item
-  padding: 20px 0px
-  text-align: justify
-  background: $gray2
-  border-radius: 4px
-  width: 80%
-  margin: auto
-  margin-bottom: 20px
-  &__title
-    >b
-      font-size: 25px
-  &.r
-
-
-@media(max-width:992px)
-  .top-header
-    &.affix .main-title
-      display: none
-    .sd-label
-      text-align: left
-      font-size: 25px 
-      line-height: 25px
-    .menu--top
-      a
-        padding: 0px 2px
-        font-size: 26px
-
-  .menu--main
-    a
-      font-size: 30px
-
-  .experience-item
-    width: 100%
-@media(max-width:768px)
-  .menu--top
-    a
-      font-size: 40px
 
 .scroll-anim
   opacity: 0

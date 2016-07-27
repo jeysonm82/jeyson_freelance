@@ -1,0 +1,52 @@
+header
+  color: $gray1
+  background-color: $base
+  background-image: url(/static/img/60-lines.png)
+  padding-bottom: 20px
+  min-height: 100vh
+
+.top-header
+  background: $white
+  top: -50px
+  .sd-label
+    margin-top: 20px
+    margin-bottom: 10px
+    text-align: right
+    font-size: 20px
+    line-height: 36px
+  &.affix
+    top: 0
+    transition: all 0.3s ease-in
+    background: $header_affix_color
+    color: $gray2
+    width: 100%
+    z-index: 10
+    .sd-label
+      display: none
+    .menu--top
+      display: block
+
+    h1
+      margin: 10px 0px
+      a
+        color: $gray2
+        &:hover
+          color: $gray2
+  h1
+    a:hover
+     color: $gray1
+     text-decoration: none
+       
+
+
+.bottom-header
+  .intro
+    color: $gray2
+    font-size: 50px
+    padding: 290px 50px
+    text-align: center
+    div span:nth-child(1)
+      font-size: 70px
+    div span:nth-child(2)
+      padding: 10px
+      background: $gray1
