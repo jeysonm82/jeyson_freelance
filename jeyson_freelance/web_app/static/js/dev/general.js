@@ -17,13 +17,14 @@ export default function general_ui(){
                         }
                     }
                     );
+                clearTimeout(do_scroll_anim_timer);
         }
 
         $(window).scroll(function(){
             if(do_scroll_anim_timer) {
                 clearTimeout(do_scroll_anim_timer);
             }
-            do_scroll_anim_timer = setTimeout(do_scroll_anim, 150);
+            do_scroll_anim_timer = setTimeout(do_scroll_anim, 50);
         });
 
         $(window).trigger( "scroll" );
