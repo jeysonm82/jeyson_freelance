@@ -28,7 +28,7 @@
             <div class='col-md-12'>
                 <h2>Skills</h2>
                 {%for skill_cat in skills %}
-                    <div class='col-xs-12 col-sm-6 col-md-4 scroll-anim'>
+                    <div class='col-sm-6 col-md-4 scroll-anim'>
                         <h3>{{skill_cat}}</h3>
                         <ul>
                             {%for skill in skill_cat.skills.all%}

@@ -1,7 +1,7 @@
 export default function menu_ui(){
 
     $(document).ready(function(){
-    
+        $(".top-header").attr("data-offset-top", $("header").height()- $(".top-header").height() -10);
         $(".menu a").click(function(event){
             event.preventDefault();
             let section_id = $(this).attr("href");
@@ -11,7 +11,7 @@ export default function menu_ui(){
             $(".top-header").addClass("affix"); 
             let top_header_height = $(".top-header").height();
             $('html, body').animate({
-                    scrollTop: $(section_id).offset().top - top_header_height
+                    scrollTop: $(section_id).offset().top - top_header_height + 5
                 }, 500);
         
         });
