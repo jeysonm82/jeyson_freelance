@@ -40,9 +40,16 @@ export default function menu_ui(){
         });
 
         // Go top logic
+        let goto_elem = $(".go-top");
         $(window).scroll(function(){
-            let goto_class = $(this).scrollTop()>400?'go-top visible':'go-top';
-            $(".go-top").removeClass().addClass(goto_class);
+            //let goto_class = $(this).scrollTop()>400?'go-top visible':'go-top';
+            //$(".go-top").removeClass().addClass(goto_class);
+            if ($(this).scrollTop()>400){
+                goto_elem.addClass("visible");
+            }
+            else{
+                goto_elem.removeClass("visible");
+            }
         
         });
 
