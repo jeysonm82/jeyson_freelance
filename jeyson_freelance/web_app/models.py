@@ -4,12 +4,13 @@ from django.db import models
 from versatileimagefield.fields import VersatileImageField, PPOIField
 import json
 from django.utils.html import mark_safe
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 class Bio(models.Model):
     first_name = models.CharField(max_length=20)
     last_name = models.CharField(max_length=20)
-    description = models.TextField(null=True, blank=True)
+    description = RichTextField(null=True, blank=True)
     email = models.EmailField()
     phone = models.CharField(max_length=15)
     location = models.CharField(max_length=30)

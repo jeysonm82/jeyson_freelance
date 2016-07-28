@@ -1,5 +1,5 @@
 from django.views.generic import TemplateView
-from models import SkillCategory, Skill, Project, Experience
+from models import SkillCategory, Skill, Project, Experience, Bio
 
 class HomeView(TemplateView):
     template_name = 'web_app/home.html'
@@ -9,4 +9,5 @@ class HomeView(TemplateView):
         context['skills'] = SkillCategory.objects.all()
         context['sample_projects'] = list(Project.objects.all() )* 10
         context['experiences'] = list(Experience.objects.all())*5
+        context['bio'] = Bio.objects.get()
         return context
