@@ -85,6 +85,9 @@ class Project(models.Model):
         r['images'] = [{'url': x.image.url} for x in self.images.all()]
         return mark_safe(json.dumps(r))
 
+    def __unicode__(self):
+        return self.title
+
     class Meta:
         verbose_name = 'Project'
         verbose_name_plural = 'Projects'
