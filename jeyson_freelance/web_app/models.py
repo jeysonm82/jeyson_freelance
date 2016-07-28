@@ -72,11 +72,12 @@ class Project(models.Model):
     demo_url = models.URLField("Demo URL", blank=True, null=True)
     source_url = models.URLField("Source URL", blank=True, null=True)
     skills = models.ManyToManyField(Skill)
+    order = models.SmallIntegerField(default = 0)
     
     def to_json(self):
         r = {}
         r['title'] = self.title
-        r['image'] = self.image.thumbnail['400x300'].url
+        r['image'] = self.image.thumbnail['400x200'].url
         r['id'] = self.pk
         r['short_desc'] = self.short_desc
         r['description'] = self.description
@@ -87,6 +88,7 @@ class Project(models.Model):
     class Meta:
         verbose_name = 'Project'
         verbose_name_plural = 'Projects'
+        ordering = ['order', 'pk']
 
 
 class ProjectImage(models.Model):

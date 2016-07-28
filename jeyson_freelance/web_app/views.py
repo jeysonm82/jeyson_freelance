@@ -7,7 +7,7 @@ class HomeView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(HomeView, self).get_context_data(**kwargs)
         context['skills'] = SkillCategory.objects.all()
-        context['sample_projects'] = list(Project.objects.all() )* 10
+        context['sample_projects'] = Project.objects.all()
         context['experiences'] = list(Experience.objects.all())*5
         context['bio'] = Bio.objects.get()
         return context
