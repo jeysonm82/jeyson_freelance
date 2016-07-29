@@ -68,7 +68,7 @@ class Project(models.Model):
     short_desc = models.CharField(max_length=140)
     image = VersatileImageField('Imagen', ppoi_field='ppoi')
     ppoi = PPOIField('Image center')
-    description = models.TextField()
+    description = RichTextField()
     demo_url = models.URLField("Demo URL", blank=True, null=True)
     source_url = models.URLField("Source URL", blank=True, null=True)
     skills = models.ManyToManyField(Skill)
