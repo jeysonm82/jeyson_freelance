@@ -83,6 +83,8 @@ class Project(models.Model):
         r['description'] = self.description
         r['skills'] = [{'name': x.name} for x in self.skills.all()]
         r['images'] = [{'url': x.image.url} for x in self.images.all()]
+        r['demo_url'] = self.demo_url
+        r['source_url'] = self.source_url
         return mark_safe(json.dumps(r))
 
     def __unicode__(self):

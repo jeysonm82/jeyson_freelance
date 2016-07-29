@@ -112,8 +112,12 @@ class ProjectDetailComp extends React.Component {
                     <a href='#sample-projects' onClick={this.props.close}><i className="fa fa-times-circle-o fa-3x"></i></a> 
                     <div className='project-detail__cont'>
                         <h3>{entry.title}</h3>
+                        {entry.demo_url?<a target='_blank' href={entry.demo_url} className='btn btn-default'>Demo</a>:''}
+                        {entry.source_url?<a target='_blank' href={entry.source_url} className='btn btn-default'>Source code</a>:''}
+                        <br/>
                         <h4>Description:</h4>
                         {description}
+                        <br/>
 
                         <h4>Skills used:</h4>
                         <ul className='project-detail__skills'>
