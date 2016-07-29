@@ -106,13 +106,14 @@ class ProjectDetailComp extends React.Component {
         let entry = this.props.entry;
         let skills = entry.skills.map((entry, index) => <li key={index}>{entry.name}</li> );
         let images = entry.images.map((entry, index) => <img src={entry.url} />);
+        let description = entry.description.split("\n").map((value) => <span>{value}<br/></span>);
         return(
                 <div className='project-detail animated fadeIn'>
                     <a href='#sample-projects' onClick={this.props.close}><i className="fa fa-times-circle-o fa-3x"></i></a> 
                     <div className='project-detail__cont'>
                         <h3>{entry.title}</h3>
                         <h4>Description:</h4>
-                        {entry.description}
+                        {description}
 
                         <h4>Skills used:</h4>
                         <ul className='project-detail__skills'>
