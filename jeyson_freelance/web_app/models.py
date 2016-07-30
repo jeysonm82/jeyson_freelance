@@ -18,6 +18,12 @@ class Bio(models.Model):
     github_url = models.URLField("Github URL")
     linkedin_url = models.URLField("Linkedin URL")
 
+    def full_name(self):
+        return "%s %s"%(self.first_name, self.last_name)
+
+    def __unicode__(self):
+        return self.full_name
+
     class Meta:
         verbose_name = 'Bio'
         verbose_name_plural = 'Bio'

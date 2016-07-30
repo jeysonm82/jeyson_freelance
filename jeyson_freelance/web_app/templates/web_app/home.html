@@ -10,11 +10,11 @@
             </div>
             <div class='col-md-6 info scroll-anim'>
                 <ul>
-                    <li><i class="fa fa-user fa-2x"></i> Jeyson Molina Cortés</li>
-                    <li><a href='mailto: jeyson.mco@gmail.com' target='_blank'><i class="fa fa-envelope fa-2x"></i> jeyson.mco@gmail.com</a></li>
-                    <li><a href='https://www.youtube.com/watch?v=k-OD3KaVHSE' target='_blank'><i class="fa fa-globe fa-2x"></i> Medellin, Colombia</a></li>
-                    <li><a href='http://www.github.com/jeysonmc' target='_blank'><i class="fa fa-github-alt fa-2x"></i> Github</a></li>
-                    <li><a href='https://www.linkedin.com/in/jeyson-molina-90048427?trk=nav_responsive_tab_profile' target='_blank'><i class="fa fa-linkedin fa-2x"></i> Linkedin</a></li>
+                    <li><i class="fa fa-user fa-2x"></i> {{bio.full_name}}</li>
+                    <li><a href='mailto: {{bio.email}}' target='_blank'><i class="fa fa-envelope fa-2x"></i> {{bio.email}}</a></li>
+                    <li><a href='https://www.youtube.com/watch?v=k-OD3KaVHSE' target='_blank'><i class="fa fa-globe fa-2x"></i>{{bio.location}}</a></li>
+                    <li><a href='{{bio.github_url}}' target='_blank'><i class="fa fa-github-alt fa-2x"></i> Github</a></li>
+                    <li><a href='{{bio.linkedin_url}}' target='_blank'><i class="fa fa-linkedin fa-2x"></i> Linkedin</a></li>
                     <li><a href='/static/CV_Jeyson-Molina_2016.pdf' target='_blank'><i class="fa fa-file-pdf-o fa-2x"></i> Get my CV</a></li>
                 </ul>
             </div>
