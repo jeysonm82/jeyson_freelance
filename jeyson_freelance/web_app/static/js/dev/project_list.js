@@ -120,7 +120,7 @@ class ProjectDetailComp extends React.Component {
                         <br/>
 
                         <h4>Skills used:</h4>
-                        <ul className='project-detail__skills'>
+                        <ul className='project-detail__skills skill-list'>
                             {skills}
                         </ul>
 

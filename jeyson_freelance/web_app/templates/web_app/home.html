@@ -52,6 +52,7 @@
 <section id='experience'>
     <div class='container'>
         <h2>My experience</h2>
+        <p>I've been developing software for 5+ years and have a degree in Systems and Software Engineering from the National university of Colombia (2012).</p>
             {%for exp in experiences%}
                 <div class='experience-item row {% cycle '' 'r' %} scroll-anim'>
                     <div class='experience-item__title col-md-3 '>
@@ -61,7 +62,7 @@
                     <div class='col-md-9'>
                         {{exp.description}} {%lorem%}
                         <h4>Skills used:</h4>
-                        <ul>
+                        <ul class='skill-list'>
                                 {%for skill in exp.skills.all%}
                                 <li>{{skill}}</li>
                                 {%endfor%}

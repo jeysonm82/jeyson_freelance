@@ -63,6 +63,9 @@ class Experience(models.Model):
     skills = models.ManyToManyField(Skill)
     exp_type = models.CharField("Experience type", max_length=10, choices=[('education', 'Education'), ('work', 'Work')])
 
+    def __unicode__(self):
+        return self.title
+
     class Meta:
         verbose_name = 'Experience'
         verbose_name_plural = 'Experiences'
