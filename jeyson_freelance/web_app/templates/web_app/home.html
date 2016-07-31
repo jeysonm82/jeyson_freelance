@@ -56,7 +56,7 @@
             {%for exp in experiences%}
                 <div class='experience-item row {% cycle '' 'r' %} scroll-anim'>
                     <div class='experience-item__title col-md-3 '>
-                        <b>{{exp.title}}</b>
+                        <h3>{{exp.title}}</h3>
                         <p><b>From:</b> {{exp.date_from|date:"Y"}} <b>To:</b> {%if exp.date_to == None%}Present{%else%}{{exp.date_to|date:"Y"}}{%endif%}</p>
                     </div>
                     <div class='col-md-9'>
