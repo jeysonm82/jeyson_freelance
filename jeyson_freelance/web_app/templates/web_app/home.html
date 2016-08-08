@@ -1,4 +1,6 @@
 {%extends "web_app/base_layout.html"%}
+{% load widget_tweaks %}
+
 
 {%block content%}
 <section id='about-me' >
@@ -80,24 +82,36 @@
         <h2>Contact</h2>
         <div class='row'>
             <div class='col-md-offset-2 col-md-8'>
-                <p>You may contact me at &#60;jeyson.mco@gmail.com> </p>
-                <form role='form' method='post' class='scroll-anim'>
+                <p>You may contact me at &#60;{{bio.email}}> </p>
+                {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+
+                <form role='form' method='post' class='scroll-anim' action='/#contact'>
                     {%csrf_token%}
                     <div class='form-group'>
                         <label for='name'>Name</label> 
-                        <input class='form-control' type='text' name='name' placeholder='Name'/>
+                        {{form.name|attr:"class:form-control"|attr:"placeholder:Name"}}
+                        {{form.name.errors}}
                     </div>
                    <div class='form-group'>
                         <label for='email'>Email</label> 
-                        <input class='form-control' type='text' name='email' placeholder='Email'/>
+                        {{form.email|attr:"class:form-control"|attr:"placeholder:Email"}}
+                        {{form.email.errors}}
                     </div>
                    <div class='form-group'>
                         <label for='subject'>Subject</label> 
-                        <input class='form-control' type='text' name='subject' placeholder='Subject'/>
+                        {{form.subject|attr:"class:form-control"|attr:"placeholder:Subject"}}
+                        {{form.subject.errors}}
                     </div>
                    <div class='form-group'>
-                        <label for='description'>Description</label> 
-                        <textarea rows='10' name='description' class='form-control'></textarea>
+                        <label for='message'>Message</label> 
+                        {{form.message|attr:"class:form-control"|attr:"rows:10"}}
+                        {{form.message.errors}}
                     </div>
                     <button class='btn'>Submit</button>
                     
@@ -111,6 +125,7 @@
 {%block body_scripts%}
     {{block.super}}
     <script>
+        //Initial state. TODO Not safe!.
         window.project_list_comp.setState({projects: 
                 [
                 {%for project in sample_projects%}

@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'ckeditor',
+    'widget_tweaks',
     'versatileimagefield',
     'web_app'
 ]

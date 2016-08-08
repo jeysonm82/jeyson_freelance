@@ -109,3 +109,13 @@ class ProjectImage(models.Model):
     project = models.ForeignKey(Project, related_name='images')
     image = VersatileImageField('Imagen', ppoi_field='ppoi')
     ppoi = PPOIField('Image center')
+
+class ContactEntry(models.Model):
+    name = models.CharField(max_length=60)
+    email = models.EmailField(max_length=50)
+    subject = models.CharField(max_length=100)
+    message = models.TextField()
+    date = models.DateTimeField(auto_now_add=True, null=True)
+
+    def __unicode__(self):
+        return "Date: %s From: %s Subject: %s"%(self.date, self.name, self.subject)
