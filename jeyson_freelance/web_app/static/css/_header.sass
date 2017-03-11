@@ -1,9 +1,20 @@
+@keyframes bgchange
+  0%
+    background-color: $base
+  50%
+    background-color: #1c6da5 /*#207cbb*/
+  100%
+    background-color: $base
+
 header
   color: $gray1
   background-color: $base
   background-image: url(/static/img/60-lines.png)
   padding-bottom: 20px
   min-height: 100vh
+  animation-name: bgchange
+  animation-duration: 15s
+  animation-iteration-count: infinite
 
 .top-header
   background: $white

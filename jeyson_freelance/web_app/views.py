@@ -2,6 +2,8 @@ from django.views.generic import CreateView
 from models import SkillCategory, Skill, Project, Experience, Bio
 from models import ContactEntry
 from django.contrib import messages
+
+
 class HomeView(CreateView):
     template_name = 'web_app/home.html'
     model = ContactEntry
