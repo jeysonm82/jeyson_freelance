@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.conf.urls.static import static
 from django.conf import settings
 
+
 admin.site.site_header = u"Jeyson's Freelance Website Administration."
 admin.site.site_title = u"Jeyson's Freelance Website Administration."
 admin.autodiscover()

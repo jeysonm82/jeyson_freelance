@@ -12,11 +12,11 @@ class HomeView(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super(HomeView, self).get_context_data(**kwargs)
-        context['skills'] = SkillCategory.objects.all()
+        context['skills'] = SkillCategory.objects.all().prefetch_related('skills')
         context['sample_projects'] = Project.objects.all()
         context['experiences'] = Experience.objects.all()
         context['bio'] = Bio.objects.get()
-        context['cases'] = CaseEntry.objects.all()
+        # context['cases'] = CaseEntry.objects.all()
         return context
 
     def form_valid(self, form):
