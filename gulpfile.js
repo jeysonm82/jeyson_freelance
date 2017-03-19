@@ -93,13 +93,13 @@ function bundleApp(isProduction) {
 
     // Compile general SASS files from  web_base/static/css
     gulp.src("./jeyson_freelance/web_app/static/css/styles.sass")
-    .pipe(sass())
+    .pipe(sass({outputStyle: 'compressed'}))
     .pipe(gulp.dest("./jeyson_freelance/web_app/static/css"));
 
     // Compile SASS files from static/js/dev and bundle it into app.js
     gulp.src("./jeyson_freelance/web_app/static/js/dev/**/*.scss")
     // Run Sass on those files
-    .pipe(sass())
+    .pipe(sass({outputStyle: 'compressed'}))
     //Concat
     .pipe(concat('app.css'))
     // Write the resulting CSS in the output folder
