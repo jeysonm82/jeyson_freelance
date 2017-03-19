@@ -5,6 +5,7 @@ from versatileimagefield.fields import VersatileImageField, PPOIField
 import json
 from django.utils.html import mark_safe
 from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 
 # Create your models here.
 class Bio(models.Model):
@@ -119,3 +120,15 @@ class ContactEntry(models.Model):
 
     def __unicode__(self):
         return "Date: %s From: %s Subject: %s"%(self.date, self.name, self.subject)
+
+
+class CaseEntry(models.Model):
+    title = models.CharField(max_length=120)
+    content = RichTextUploadingField("Content")
+    order = models.SmallIntegerField(default = 0)
+
+    def __unicode__(self):
+        return self.title
+
+    class Meta:
+        ordering = ['order']

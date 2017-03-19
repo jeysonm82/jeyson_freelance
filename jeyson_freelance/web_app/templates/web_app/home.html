@@ -40,6 +40,19 @@
                     </div>
                 {%endfor%}
             </div>
+            <div class='col-md-12 hidden'>
+                <button class='cases-btn btn btn-default'>Case studies </button>
+                <div class='cases-cont '>
+                    <div class='cases-cont-slider'>
+                        {%for case in cases%}
+                            <div>
+                                <h4>case.title</h4>
+                                {{case.content|safe}}
+                            </div>
+                        {%endfor%}
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>

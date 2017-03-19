@@ -1,5 +1,5 @@
 from django.contrib import admin
-from models import Bio, Skill, SkillCategory, Experience, Project, ProjectImage, ContactEntry
+from models import Bio, Skill, SkillCategory, Experience, Project, ProjectImage, ContactEntry, CaseEntry
 # Register your models here.
 
 class BioAdmin(admin.ModelAdmin):
@@ -32,3 +32,4 @@ admin.site.register(SkillCategory, SkillCategoryAdmin)
 admin.site.register(Experience)
 admin.site.register(Project, ProjectAdmin)
 admin.site.register(ContactEntry)
+admin.site.register(CaseEntry)

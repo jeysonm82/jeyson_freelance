@@ -1,6 +1,6 @@
 from django.views.generic import CreateView
 from models import SkillCategory, Skill, Project, Experience, Bio
-from models import ContactEntry
+from models import ContactEntry, CaseEntry
 from django.contrib import messages
 
 
@@ -16,6 +16,7 @@ class HomeView(CreateView):
         context['sample_projects'] = Project.objects.all()
         context['experiences'] = Experience.objects.all()
         context['bio'] = Bio.objects.get()
+        context['cases'] = CaseEntry.objects.all()
         return context
 
     def form_valid(self, form):
