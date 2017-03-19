@@ -21,10 +21,13 @@ export default function general_ui(){
         }
 
         $(window).scroll(function(){
-            if(do_scroll_anim_timer) {
-                clearTimeout(do_scroll_anim_timer);
+            let window_width = $(window).width();
+            if(window_width > 768){
+                if(do_scroll_anim_timer) {
+                    clearTimeout(do_scroll_anim_timer);
+                }
+                do_scroll_anim_timer = setTimeout(do_scroll_anim, 50);
             }
-            do_scroll_anim_timer = setTimeout(do_scroll_anim, 50);
         });
 
         $(window).trigger( "scroll" );
